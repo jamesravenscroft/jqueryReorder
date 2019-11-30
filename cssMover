@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+ul li:first-child{
+  order: 5;
+}
+
+ul li:nth-child(2){
+  order: 4;
+}
+
+ul li:nth-child(3){
+  order: 3;
+}
+
+ul li:nth-child(4){
+  order: 2;
+}
+</style>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+<H1>Original list read "1, 2, 3, 4, 5"</H1>
+<h2>Changed order with CSS</h2>
+<!-- method 1  -->
+<ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+<script>
+$('.simple li').click(function() {
+    var $this = $(this);
+    $this.insertAfter($this.siblings(':eq(0)'));
+});
+
+$('.animated li').click(function() {
+    var $this = $(this),
+        callback = function() {
+            $this.insertAfter($this.siblings(':eq(0)'));
+        };
+    $this.slideUp(500, callback).slideDown(500);
+});
+</script>
+
+</body>
+</html>
