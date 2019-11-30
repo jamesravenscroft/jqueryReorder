@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- method 1  -->
+
+<div id='parent_div'>
+    <div id='div_1'>One</div>
+    <div id='div_2'>Two</div>
+    <div id='div_3'>Three</div>
+</div>
+<script>
+    var e = $("#div_2");
+    // move up:
+    e.prev().insertAfter(e);
+    // move down:
+    // e.next().insertBefore(e);
+    </script>
+    Move Up on Click
+<ul class="simple">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+ </ul>
+ <hr />
+
+
+<script>
+$('.simple li').click(function() {
+    var $this = $(this);
+    $this.insertAfter($this.siblings(':eq(0)'));
+});
+
+$('.animated li').click(function() {
+    var $this = $(this),
+        callback = function() {
+            $this.insertAfter($this.siblings(':eq(0)'));
+        };
+    $this.slideUp(500, callback).slideDown(500);
+});
+</script>
+
+</body>
+</html>
